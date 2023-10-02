@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    function:
+      definition: digi;ipe
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:29092
+          replicationFactor: 1
+      bindings:
+        producer1-out-0:
+          destination: digi-topic
+        producer2-out-0:
+          destination: ipe-topic
+        digi-in-0:
+          destination: digi-topic,ipe-topic
+        ipe-in-0:
+          destination: digi-topic,ipe-topic
+#        ipe-in-0:
+#          destination: ipe-topic
